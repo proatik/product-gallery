@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 import { ToastProvider } from "@/providers/ToastProvider";
 import { MainContextProvider } from "@/contexts/MainContext";
 
+// react components.
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+
 type RootLayoutProps = {
   readonly children: React.ReactNode;
 };
@@ -26,7 +30,11 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ToastProvider />
-        <MainContextProvider>{children}</MainContextProvider>
+        <MainContextProvider>
+          <Header />
+          {children}
+          <Footer />
+        </MainContextProvider>
       </body>
     </html>
   );
