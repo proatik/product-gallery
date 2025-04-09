@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 
+import { Suspense } from "react";
+
 // data.
 import { Product } from "@/data/products";
 
@@ -67,7 +69,9 @@ const ProductsPage = async ({ searchParams }: ProductsPageProps) => {
 
   return (
     <div className="container grid gap-6 pt-4 pb-16 items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      <Sidebar />
+      <Suspense>
+        <Sidebar />
+      </Suspense>
       <Products products={products} stats={stats} />
     </div>
   );

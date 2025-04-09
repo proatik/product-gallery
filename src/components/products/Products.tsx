@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 // data.
 import { Product } from "@/data/products";
 
@@ -19,7 +21,9 @@ const Products = ({ products, stats }: ProductsProps) => {
   return (
     <div className="sm:col-span-2 lg:col-span-3">
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        <SortBy />
+        <Suspense>
+          <SortBy />
+        </Suspense>
 
         {!Boolean(products?.length) && (
           <div className="flex items-center justify-center col-span-3 gap-2 p-4 py-8 font-mono text-2xl border border-gray-200 rounded bg-slate-100/30 text-slate-600">

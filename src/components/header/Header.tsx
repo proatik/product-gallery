@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { Suspense } from "react";
+
 // react components.
 import Search from "./Search";
 import CartButton from "./CartButton";
@@ -13,9 +15,16 @@ const Header = () => {
           <span className="block md:hidden">PG</span>
           <span className="hidden md:block">Product Gallery</span>
         </Link>
-        <Search />
+
+        <Suspense>
+          <Search />
+        </Suspense>
+
         <CartButton />
-        <Adjustment />
+
+        <Suspense>
+          <Adjustment />
+        </Suspense>
       </div>
     </header>
   );
