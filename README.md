@@ -81,6 +81,6 @@
 ## Deployment
 
 The application is deployed at:  
-👉 [https://paoatik-product-gallery.vercel.app](https://proatik-product-gallery.vercel.app)
+👉 [https://proatik-product-gallery.vercel.app](https://proatik-product-gallery.vercel.app)
 
 ---
