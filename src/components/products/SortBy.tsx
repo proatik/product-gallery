@@ -11,7 +11,7 @@ const SortBy = () => {
   useEffect(() => {
     const updatedParams = new URLSearchParams(searchParams.toString());
 
-    if (sortBy === "default") updatedParams.delete("sort");
+    if (sortBy === "default" || !sortBy) updatedParams.delete("sort");
     else updatedParams.set("sort", sortBy);
 
     if (updatedParams.size)
