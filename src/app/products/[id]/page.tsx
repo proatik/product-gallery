@@ -15,10 +15,9 @@ export type FetchProductResponse = {
 // fetch product.
 const fetchProduct = async (id: string): Promise<FetchProductResponse> => {
   try {
-    const baseURL =
-      process.env.BASE_URL || "http://localhost:3000/api/products";
+    const baseURL = process.env.BASE_URL || "http://localhost:3000";
 
-    const response = await fetch(`${baseURL}/${id}`);
+    const response = await fetch(`${baseURL}/api/products/${id}`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch product");
