@@ -3,6 +3,7 @@ import Link from "next/link";
 // react components.
 import Search from "./Search";
 import CartButton from "./CartButton";
+import Adjustment from "./Adjustment";
 
 const Header = () => {
   return (
@@ -14,6 +15,7 @@ const Header = () => {
         </Link>
         <Search />
         <CartButton />
+        <Adjustment />
       </div>
     </header>
   );

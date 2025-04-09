@@ -28,7 +28,7 @@ const initialValues: FormValues = {
   categories: Array(categories.length).fill(false),
 };
 
-const Sidebar = () => {
+const Sidebar = ({ small }: { small?: boolean }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -149,7 +149,11 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="hidden px-4 pb-6 overflow-hidden bg-white rounded shadow sm:block">
+    <div
+      className={`px-4 pb-6 bg-white rounded shadow ${
+        small ? "block" : "hidden md:block"
+      }`}
+    >
       <div className="space-y-5 divide-y divide-gray-200">
         <form onSubmit={handleSubmit((v) => console.log(v))}>
           {/* price range */}

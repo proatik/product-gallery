@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const Search = () => {
+const Search = ({ small }: { small?: boolean }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [value, setValue] = useState("");
@@ -35,7 +35,11 @@ const Search = () => {
 
   return (
     <div className="relative flex w-full max-w-xl">
-      <span className="absolute hidden text-lg text-gray-400 md:inline left-4 top-3">
+      <span
+        className={`absolute hidden text-lg text-gray-400 md:inline left-4 top-3 ${
+          small && "inline"
+        }`}
+      >
         <svg
           fill="none"
           strokeWidth={1.5}
@@ -57,7 +61,9 @@ const Search = () => {
         value={value}
         placeholder="search product"
         onChange={(e) => setValue(e.target.value)}
-        className="hidden w-full py-3 pl-12 pr-3 border border-slate-400 rounded-md focus:outline-none md:flex focus:border-teal-600"
+        className={`hidden w-full py-3 pl-12 pr-3 border border-slate-400 rounded-md focus:outline-none md:flex focus:border-teal-600 ${
+          small && "inline"
+        }`}
       />
     </div>
   );

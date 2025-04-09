@@ -17,8 +17,8 @@ type ProductsProps = {
 
 const Products = ({ products, stats }: ProductsProps) => {
   return (
-    <div className="md:col-span-2 lg:col-span-3">
-      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="sm:col-span-2 lg:col-span-3">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <SortBy />
 
         {!Boolean(products?.length) && (
