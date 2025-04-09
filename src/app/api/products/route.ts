@@ -11,6 +11,7 @@ export async function GET(request: NextRequest) {
     const priceMax = searchParams.get("priceMax");
     const search = searchParams.get("search");
     const page = searchParams.get("page");
+    const sort = searchParams.get("sort");
     const availability = searchParams.get("availability");
 
     const categories = category ? category.split(",").map(Number) : [];
@@ -41,6 +42,16 @@ export async function GET(request: NextRequest) {
 
       return categoryMatch && priceMatch && nameMatch && availabilityMatch;
     });
+
+    if (sort === "price-l-h") {
+      filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (sort === "price-h-l") {
+      filteredProducts.sort((a, b) => b.price - a.price);
+    } else if (sort === "name-a-z") {
+      filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sort === "name-z-a") {
+      filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+    }
 
     const paginatedProducts = filteredProducts.slice(skip, skip + limit);
 
