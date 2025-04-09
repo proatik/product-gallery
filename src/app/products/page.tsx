@@ -26,7 +26,10 @@ export const metadata: Metadata = {
 // fetch products.
 const fetchProducts = async (query: string): Promise<FetchProductsResponse> => {
   try {
-    const response = await fetch(`http://localhost:3000/api/products?${query}`);
+    const baseURL =
+      process.env.BASE_URL || "http://localhost:3000/api/products";
+
+    const response = await fetch(`${baseURL}?${query}`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch products");
